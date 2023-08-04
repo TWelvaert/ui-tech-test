@@ -1,15 +1,19 @@
 
 import { Switch } from "@headlessui/react";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 import useMode from "./useMode";
 
 export default function ModeSwitch() {
   const [mode, toggleMode] = useMode();
   const enabled = mode === "edit";
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     // Call the toggle function provided by the hook
     toggleMode();
+    const newMode = mode === "edit" ? "preview" : "edit";
+    navigate(`?mode=${newMode}`, { replace: true }); // Use replace: true to prevent adding history entries
   };
 
   return (
