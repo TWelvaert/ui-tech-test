@@ -1,23 +1,6 @@
-
-// function Aside({ children }: { children?: React.ReactNode }) {
-//     return (
-//         <aside
-//             className="h-full border-l border-gray-200 w-1/6 px-4 py-10"
-//         >
-//             <h3 className="text-lg border-b border-gray-100">Properties</h3>
-//             <div className="mt-2" />
-//             {children}
-//         </aside>
-//     )
-// }
-
-
-// export default Aside
-// Aside.tsx
-
-import React, { useState, useEffect } from "react";
-import { useSelection } from "./SelectionManager";
-import useFields, { Field } from "./fields/useFields";
+import React, { useState, useEffect } from 'react';
+import { useSelection } from './SelectionManager';
+import useFields, { Field } from './fields/useFields';
 
 function Aside() {
   const [selectedId, selectField] = useSelection();
@@ -27,11 +10,11 @@ function Aside() {
   // Function to handle form submission when the user makes changes to the field properties
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted");
+    console.log('Form submitted');
     if (editedField) {
       // Here, you can call the onSubmit handler to handle field updates.
       // For now, we'll just log the editedField object to the console.
-      console.log("Edited Field:", editedField);
+      console.log('Edited Field:', editedField);
     }
   };
 
@@ -58,38 +41,38 @@ function Aside() {
   }, [selectedId, fields]);
 
   return (
-    <aside className="h-full border-l border-gray-200 w-1/6 px-4 py-10">
-      <h3 className="text-lg border-b border-gray-100">Properties</h3>
-      <div className="mt-2" />
+    <aside className='h-full border-l border-gray-200 w-1/6 px-4 py-10'>
+      <h3 className='text-lg border-b border-gray-100'>Properties</h3>
+      <div className='mt-2' />
       <form onSubmit={handleFormSubmit}>
         {/* Display the form based on the selected field */}
         {editedField && (
           <>
-            <label htmlFor="type">Type:</label>
+            <label htmlFor='type'>Type:</label>
             <input
-              type="text"
-              name="type"
+              type='text'
+              name='type'
               value={editedField.type}
               onChange={handleFieldChange}
             />
-            <label htmlFor="label">Label:</label>
+            <label htmlFor='label'>Label:</label>
             <input
-              type="text"
-              name="label"
+              type='text'
+              name='label'
               value={editedField.label}
               onChange={handleFieldChange}
             />
-            <label htmlFor="placeholder">Placeholder:</label>
+            <label htmlFor='placeholder'>Placeholder:</label>
             <input
-              type="text"
-              name="placeholder"
+              type='text'
+              name='placeholder'
               value={editedField.placeholder}
               onChange={handleFieldChange}
             />
           </>
         )}
         {/* Use input fields or other form elements to allow editing */}
-        <button type="submit">Save</button>
+        <button type='submit'>Save</button>
       </form>
     </aside>
   );
