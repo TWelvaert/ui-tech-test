@@ -14,6 +14,8 @@ This repository supports *Github CodeSpaces*. If you have issues setting up your
 ### Setup the Environment
 This application uses Vite to transpile React + TypeScript.
 
+Make sure you have installed `yarn`, if not, follow the installation instructions: https://classic.yarnpkg.com/lang/en/docs/install/
+
 Install dependencies
 ```bash
 yarn install
